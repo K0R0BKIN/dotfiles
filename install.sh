@@ -14,6 +14,8 @@ xcode-select --install
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Add Homebrew to PATH for current session
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Symlink Brewfile and install packages
 ln -sf "$DOTFILES/Brewfile" "$HOME/Brewfile"
@@ -34,5 +36,8 @@ gh auth setup-git
 
 # Install Volta and Node
 curl https://get.volta.sh | bash
+# Add Volta to PATH for current session
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 volta install node
 
