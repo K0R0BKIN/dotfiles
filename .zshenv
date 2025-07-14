@@ -1,6 +1,12 @@
+# Source secrets
+[[ -f "$HOME/.secrets" ]] && source "$HOME/.secrets"
+
+# Preferences
+
+# Locale
 export LANG=en_US.UTF-8
 
-export VISUAL='code --wait'
+# Editor
 export EDITOR='nano'
-
-[[ -f "$HOME/.secrets" ]] && source "$HOME/.secrets"
+export VISUAL_EDITOR='code --wait'
+export VISUAL=$VISUAL_EDITOR
