@@ -18,5 +18,3 @@ brew bundle
 curl https://get.volta.sh | bash
 volta install node
 
-# Create directories for projects
-mkdir -p $HOME/code
