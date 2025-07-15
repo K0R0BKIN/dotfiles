@@ -34,7 +34,10 @@ gh auth login
 # Configure git to use GitHub CLI as the credential helper
 gh auth setup-git
 
-# Install Volta and Node
+# Install Volta
 curl https://get.volta.sh | bash
+# Generate Volta completions
+volta completions zsh > "$HOME/.volta-completions.zsh"
+# Install Node.js
 volta install node
 
