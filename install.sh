@@ -6,7 +6,9 @@ DOTFILES="$HOME/dotfiles"
 ln -sf "$DOTFILES/.zshenv" "$HOME/.zshenv"
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
 
-# .zshenv sources .secrets
+# Source .zshenv
+# - This script uses environment variables defined in .zshenv
+# - PATH is modified in .zshenv, so commands like `brew bundle` will work
 source "$HOME/.zshenv"
 
 # Install Xcode Command Line Tools
@@ -14,8 +16,6 @@ xcode-select --install
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# Add Homebrew to PATH for current session
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Symlink Brewfile and install packages
 ln -sf "$DOTFILES/Brewfile" "$HOME/Brewfile"
@@ -36,8 +36,5 @@ gh auth setup-git
 
 # Install Volta and Node
 curl https://get.volta.sh | bash
-# Add Volta to PATH for current session
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 volta install node
 
