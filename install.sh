@@ -48,3 +48,6 @@ volta install node
 volta install live-server
 volta install prettier
 
+# Symlink Ghostty config
+mkdir -p "$HOME/.config/ghostty"
+ln -sf "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
