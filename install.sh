@@ -38,6 +38,8 @@ gh auth setup-git
 curl https://get.volta.sh | bash
 # Generate Volta completions
 volta completions zsh > "$HOME/.volta-completions.zsh"
-# Install Node.js
-volta install node
+# Install packages
+volta install node 
+volta install live-server
+volta install prettier
 
