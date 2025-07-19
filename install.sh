@@ -6,6 +6,11 @@ DOTFILES="$HOME/dotfiles"
 ln -sf "$DOTFILES/.zshenv" "$HOME/.zshenv"
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
 
+# Symlink .secrets
+# - .zshenv sources .secrets
+ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+ln -sf "$ICLOUD/secrets/.secrets $HOME/.secrets"
+
 # Source .zshenv
 # - This script uses environment variables defined in .zshenv
 # - PATH is modified in .zshenv, so commands like `brew bundle` will work
