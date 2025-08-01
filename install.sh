@@ -2,6 +2,10 @@
 
 DOTFILES="$HOME/dotfiles"
 
+
+# Symlink dotfiles
+
+
 # Symlink Zsh startup files
 ln -sf "$DOTFILES/.zshenv" "$HOME/.zshenv"
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
@@ -9,18 +13,33 @@ ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
 # Symlink .secrets
 # - .zshenv sources .secrets
 ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
-ln -sf "$ICLOUD/secrets/.secrets $HOME/.secrets"
+ln -sf "$ICLOUD/secrets/.secrets" "$HOME/.secrets"
 
-# Source .zshenv
-# - This script uses environment variables defined in .zshenv
-# - PATH is modified in .zshenv, so commands like `brew bundle` will work
-source "$HOME/.zshenv"
 
-# Install Xcode Command Line Tools
-xcode-select --install
+# Install tools
+
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Volta
+curl https://get.volta.sh | bash
+# Generate Volta completions
+volta completions zsh > "$HOME/.volta-completions.zsh"
+# Install Node
+volta install node 
+
+
+# Source .zshenv
+# - Declares environment variables required for scripts below
+# - Completes tool post-install (e. g. modifies PATH)
+
+
+source "$HOME/.zshenv"
+
+
+# Configure tools
+
 
 # Symlink Brewfile and install packages
 ln -sf "$DOTFILES/Brewfile" "$HOME/Brewfile"
@@ -38,15 +57,6 @@ ln -sf "$DOTFILES/.gitignore_global" "$HOME/.gitignore_global"
 gh auth login
 # Configure git to use GitHub CLI as the credential helper
 gh auth setup-git
-
-# Install Volta
-curl https://get.volta.sh | bash
-# Generate Volta completions
-volta completions zsh > "$HOME/.volta-completions.zsh"
-# Install packages
-volta install node 
-volta install live-server
-volta install prettier
 
 # Symlink Ghostty config
 mkdir -p "$HOME/.config/ghostty"
