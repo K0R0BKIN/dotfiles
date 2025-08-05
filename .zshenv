@@ -10,3 +10,6 @@ export LANG=en_US.UTF-8
 export EDITOR='nano'
 export VISUAL_EDITOR='code --wait'
 export VISUAL=$VISUAL_EDITOR
+
+# Git
+git config --global core.editor "$VISUAL_EDITOR"
