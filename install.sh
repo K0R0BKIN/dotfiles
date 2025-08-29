@@ -16,6 +16,11 @@ ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 ln -sf "$ICLOUD/secrets/.secrets" "$HOME/.secrets"
 
 
+# Source .zshrc
+# - Modifies PATH for tools below
+source "$HOME/.zshrc"
+
+
 # Install tools
 
 
@@ -32,9 +37,6 @@ volta install node
 
 # Source .zshenv
 # - Declares environment variables required for scripts below
-# - Completes tool post-install (e. g. modifies PATH)
-
-
 source "$HOME/.zshenv"
 
 
