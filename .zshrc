@@ -1,3 +1,7 @@
+# Aliases
+
+alias dev="cd $HOME/Developer"
+
 # Completions
 
 # Homebrew
