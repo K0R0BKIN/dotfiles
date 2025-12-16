@@ -32,7 +32,7 @@ curl https://get.volta.sh | bash
 # Generate Volta completions
 volta completions zsh > "$HOME/.volta-completions.zsh"
 # Install Node
-volta install node 
+volta install node
 
 
 # Source .zshenv
@@ -63,3 +63,7 @@ gh auth setup-git
 # Symlink Ghostty config
 mkdir -p "$HOME/.config/ghostty"
 ln -sf "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
+
+# Symlink Zed config
+mkdir -p "$HOME/.config/zed"
+ln -sf "$HOME/dotfiles/zed/settings.json" "$HOME/.config/zed/settings.json"
