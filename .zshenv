@@ -7,9 +7,9 @@
 export LANG=en_US.UTF-8
 
 # Editor
-export EDITOR='nano'
-export VISUAL_EDITOR='code --wait'
+export EDITOR='vim'
+export VISUAL_EDITOR='zed --wait  --reuse'
 export VISUAL=$VISUAL_EDITOR
 
 # Git
-git config --global core.editor "$VISUAL_EDITOR"
+git config --global core.editor "$EDITOR"
