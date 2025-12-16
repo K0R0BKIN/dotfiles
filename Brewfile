@@ -5,7 +5,7 @@ brew "tealdeer"
 
 # Apps
 cask "discord"
-cask "figma"
+cask "ghostty"
 cask "google-chrome@dev"
 cask "spotify"
 cask "telegram"
