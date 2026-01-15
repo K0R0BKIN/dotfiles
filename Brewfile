@@ -2,6 +2,7 @@
 brew "gh"
 brew "git"
 brew "tealdeer"
+brew "bat"
 
 # Apps
 cask "discord"
