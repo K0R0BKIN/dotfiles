@@ -66,4 +66,4 @@ ln -sf "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 
 # Symlink Zed config
 mkdir -p "$HOME/.config/zed"
-ln -sf "$HOME/dotfiles/zed/settings.json" "$HOME/.config/zed/settings.json"
+ln -sf "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
