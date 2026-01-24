@@ -13,7 +13,7 @@ source "$HOME/.volta-completions.zsh"
 # PATH
 
 # Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+[[ -r "$HOME/.volta-completions.zsh" ]] && source "$HOME/.volta-completions.zsh"
 
 # Volta
 export VOLTA_HOME="$HOME/.volta"
