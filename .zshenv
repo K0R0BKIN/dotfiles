@@ -10,6 +10,3 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 export VISUAL_EDITOR='zed --wait  --reuse'
 export VISUAL=$VISUAL_EDITOR
-
-# Git
-git config --global core.editor "$EDITOR"
