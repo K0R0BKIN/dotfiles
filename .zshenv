@@ -1,5 +1,5 @@
 # Source secrets
-[[ -f "$HOME/.secrets" ]] && source "$HOME/.secrets"
+[[ -r "$HOME/.secrets" ]] && source "$HOME/.secrets"
 
 # Preferences
 
