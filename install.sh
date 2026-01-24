@@ -51,7 +51,7 @@ brew bundle
 git config --global user.name "$GIT_AUTHOR_NAME"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 git config --global init.defaultBranch "main"
-git config --global core.editor "$VISUAL_EDITOR"
+git config --global core.editor "$EDITOR"
 git config --global core.excludesfile "$HOME/.gitignore_global"
 # Symlink .gitignore_global
 ln -sf "$DOTFILES/.gitignore_global" "$HOME/.gitignore_global"
