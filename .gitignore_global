@@ -1,5 +1,5 @@
 # AI
-.claude/
+.claude/settings.local.json
 
 # OS
 .DS_Store
