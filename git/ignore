@@ -2,8 +2,8 @@
 .claude/settings.local.json
 .claude/skills/
 
-# OS
-.DS_Store
-
 # Secrets
 .secrets
+
+# OS
+.DS_Store
