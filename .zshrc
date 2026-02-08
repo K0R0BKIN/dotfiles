@@ -1,3 +1,9 @@
+# Aliases
+
+alias c='claude'
+alias cc='claude -c'
+alias csp='claude --dangerously-skip-permissions'
+
 # Completions
 
 # Homebrew
