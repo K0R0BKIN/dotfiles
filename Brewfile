@@ -2,6 +2,7 @@
 brew "bat"
 brew "gh"
 brew "git"
+brew "jq"
 brew "ripgrep"
 brew "tealdeer"
 
