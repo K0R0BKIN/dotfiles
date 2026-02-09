@@ -1,4 +1,5 @@
 #!/bin/zsh
+set -e
 
 DOTFILES="$HOME/dotfiles"
 ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
