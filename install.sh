@@ -41,4 +41,4 @@ volta install node
 git config --global user.name "Nikita Korobkin"
 git config --global user.email "nikita.korobkin.personal@gmail.com"
 git config --global init.defaultBranch "main"
-gh auth login
+gh auth status &>/dev/null || gh auth login
