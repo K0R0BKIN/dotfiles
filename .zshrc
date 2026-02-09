@@ -1,8 +1,9 @@
 bindkey -e
 
 alias c='claude'
+alias cr='claude -r'
 alias cc='claude -c'
-alias csp='claude --dangerously-skip-permissions'
+alias dsp='claude --dangerously-skip-permissions'
 
 # Wrappers
 
