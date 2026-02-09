@@ -4,6 +4,25 @@ alias c='claude'
 alias cc='claude -c'
 alias csp='claude --dangerously-skip-permissions'
 
+# Wrappers
+
+claude() {
+  local config="$HOME/.claude.json"
+
+  if [[ -f "$config" ]]; then
+    if defaults read -g AppleInterfaceStyle &>/dev/null; then
+      local theme="dark"
+    else
+      local theme="light"
+    fi
+
+    local tmp=$(mktemp)
+    jq --arg t "$theme" '.theme = $t' "$config" > "$tmp" && mv "$tmp" "$config"
+  fi
+
+  command claude "$@"
+}
+
 # Completions
 
 if command -v brew &>/dev/null; then
