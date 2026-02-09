@@ -1,0 +1,9 @@
+[core]
+    editor = vim
+
+[user]
+    name = Nikita Korobkin
+    email = nikita.korobkin.personal@gmail.com
+
+[init]
+    defaultBranch = main

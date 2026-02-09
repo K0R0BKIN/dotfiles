@@ -11,8 +11,9 @@ ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES/Brewfile" "$HOME/Brewfile"
 ln -sf "$ICLOUD/secrets/.secrets" "$HOME/.secrets"
 
-mkdir -p "$HOME/.config/git"
-ln -sf "$DOTFILES/git/ignore" "$HOME/.config/git/ignore"
+mkdir -p "$HOME/.config"
+
+ln -sfn "$DOTFILES/git" "$HOME/.config/git"
 
 mkdir -p "$HOME/.config/ghostty"
 ln -sf "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
@@ -38,7 +39,4 @@ volta install node
 
 # Git
 
-git config --global user.name "Nikita Korobkin"
-git config --global user.email "nikita.korobkin.personal@gmail.com"
-git config --global init.defaultBranch "main"
 gh auth status &>/dev/null || gh auth login
