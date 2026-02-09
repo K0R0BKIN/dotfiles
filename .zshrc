@@ -14,3 +14,5 @@ autoload -Uz compinit
 compinit
 
 [[ -r "$HOME/.volta-completions.zsh" ]] && source "$HOME/.volta-completions.zsh"
+
+compdef _gnu_generic zed
