@@ -8,8 +8,9 @@ alias csp='claude --dangerously-skip-permissions'
 
 if command -v brew &>/dev/null; then
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-    autoload -Uz compinit
-    compinit
 fi
+
+autoload -Uz compinit
+compinit
 
 [[ -r "$HOME/.volta-completions.zsh" ]] && source "$HOME/.volta-completions.zsh"
