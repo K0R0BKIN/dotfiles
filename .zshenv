@@ -1,3 +1,5 @@
+typeset -U path
+
 [[ -r "$HOME/.secrets" ]] && source "$HOME/.secrets"
 
 export EDITOR='vim'
