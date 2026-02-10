@@ -5,10 +5,9 @@ setopt CORRECT
 
 # Aliases
 
-alias c='claude'
-alias cr='claude -r'
-alias cc='claude -c'
-alias dsp='claude --dangerously-skip-permissions'
+alias c='claude --dangerously-skip-permissions'
+alias cr='c --resume'
+alias cc='c --continue'
 
 # Wrappers
 
