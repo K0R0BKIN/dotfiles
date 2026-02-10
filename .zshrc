@@ -1,5 +1,9 @@
+# Options
+
 bindkey -e
 setopt CORRECT
+
+# Aliases
 
 alias c='claude'
 alias cr='claude -r'
