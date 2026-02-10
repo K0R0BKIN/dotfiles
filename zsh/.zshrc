@@ -41,3 +41,4 @@ compinit
 [[ -r "$HOME/.volta-completions.zsh" ]] && source "$HOME/.volta-completions.zsh"
 
 compdef _gnu_generic zed
+compdef _gnu_generic claude
