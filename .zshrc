@@ -1,4 +1,5 @@
 bindkey -e
+setopt CORRECT
 
 alias c='claude'
 alias cr='claude -r'
