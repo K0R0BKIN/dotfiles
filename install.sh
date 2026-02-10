@@ -4,27 +4,18 @@ set -e
 DOTFILES="$HOME/dotfiles"
 ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 
-# Symlinks
-
-ln -sf "$DOTFILES/.zshenv" "$HOME/.zshenv"
-ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
-ln -sf "$DOTFILES/Brewfile" "$HOME/Brewfile"
-ln -sf "$ICLOUD/secrets/.secrets" "$HOME/.secrets"
-
-mkdir -p "$HOME/.config"
-
-ln -sfn "$DOTFILES/git" "$HOME/.config/git"
-
-mkdir -p "$HOME/.config/ghostty"
-ln -sf "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
-
-mkdir -p "$HOME/.config/zed"
-ln -sf "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
-
-# Homebrew
+# Homebrew (before stow so we can install it)
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+brew install stow
+
+# Symlinks
+
+ln -sf "$ICLOUD/secrets/.secrets" "$HOME/.secrets"
+cd "$DOTFILES"
+stow brew ghostty git zed zsh
+
 brew bundle
 brew tap domt4/autoupdate
 brew autoupdate start --upgrade

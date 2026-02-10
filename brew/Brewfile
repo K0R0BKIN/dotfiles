@@ -1,5 +1,6 @@
 # Binaries
 brew "bat"
+brew "stow"
 brew "gh"
 brew "git"
 brew "jq"

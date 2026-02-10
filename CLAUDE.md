@@ -4,12 +4,13 @@ Personal dotfiles for macOS. Install script is idempotent — safe to re-run.
 
 ## Structure
 
-- `.zshenv`
-- `.zshrc`
-- `Brewfile`
-- `git/ignore` (symlinked to `~/.config/git/ignore`, the git default path, so no `core.excludesfile` needed)
-- `ghostty/config`
-- `zed/settings.json`
+Symlinks are managed by [GNU Stow](https://www.gnu.org/software/stow/). Each subdirectory is a Stow package whose contents mirror the home directory layout.
+
+- `zsh/` — `.zshenv`, `.zshrc` (stowed to `~/`)
+- `brew/` — `Brewfile` (stowed to `~/`)
+- `git/` — `.config/git/config`, `.config/git/ignore` (stowed to `~/.config/git/`)
+- `ghostty/` — `.config/ghostty/config` (stowed to `~/.config/ghostty/`)
+- `zed/` — `.config/zed/settings.json` (stowed to `~/.config/zed/`)
 - `install.sh`
 
 ## Conventions
@@ -23,6 +24,7 @@ Personal dotfiles for macOS. Install script is idempotent — safe to re-run.
 - **npm**
 - **Volta**
 - **Homebrew**
+- **GNU Stow**
 - **gh**
 
 ## Notes
@@ -33,7 +35,7 @@ The install script assumes a fresh machine. It doesn't guard against Homebrew or
 
 ### `~/.config/git/config` vs. `~/.gitconfig`
 
-Git automatically reads `~/.config/git/config` as a fallback config location. Declarative settings (user, editor, init) live there via the symlinked `git/` directory. Tool-generated entries like credential helpers (written by `gh auth login`) go to `~/.gitconfig`. Git merges both files, with `~/.gitconfig` taking priority on a per-key basis. This keeps authored settings version-controlled while letting generated config live outside the repo.
+Git automatically reads `~/.config/git/config` as a fallback config location. Declarative settings (user, editor, init) live there via Stow-managed symlinks. Tool-generated entries like credential helpers (written by `gh auth login`) go to `~/.gitconfig`. Git merges both files, with `~/.gitconfig` taking priority on a per-key basis. This keeps authored settings version-controlled while letting generated config live outside the repo.
 
 ### `bindkey -e`
 
@@ -53,6 +55,3 @@ Claude Code has no CLI flag for theme and no automatic system appearance detecti
 
 The wrapper uses `jq` to update `.claude.json` before launching Claude, writing to a temp file and then `mv`-ing it over the original. On macOS, `mktemp` writes to `$TMPDIR` (`/var/folders/.../T/`), which is on the same APFS volume as `$HOME`, so the `mv` is an atomic rename — not a cross-filesystem copy. The race condition where another process writes to `.claude.json` between the `jq` read and `mv` is theoretically possible but not a practical concern, since `claude` takes over the terminal session. The `jq` dependency is also safe — this is an interactive function, not a shell startup path, so `brew bundle` has always run first.
 
-### `ln -sfn`
-
-Without `-n`, `ln -sf` on a directory target follows the existing symlink and creates a nested link inside it (e.g., `~/.config/git/git` pointing back to `~/dotfiles/git`). The `-n` flag treats an existing symlink-to-directory as a file and replaces it in place. This only matters for the `git/` directory symlink — file-level symlinks like `.zshrc` don't need it because `-f` handles those fine.
