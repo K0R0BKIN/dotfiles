@@ -41,6 +41,18 @@ Git automatically reads `~/.config/git/config` as a fallback config location. De
 
 `EDITOR='vim'` in `.zshenv` causes Zsh to automatically switch to vi keybinding mode, which disables standard keybindings like ctrl+r, ctrl+p, and opt+arrow. `bindkey -e` in `.zshrc` overrides this by telling Zsh to use emacs keybindings (which is what Bash uses by default). These two lines are coupled — removing `bindkey -e` breaks keybindings, and removing `EDITOR='vim'` makes `bindkey -e` unnecessary.
 
+### `source ~/.zshenv` in `install.sh`
+
+The install script sources `.zshenv` after stow so it inherits environment variables (like `XDG_CONFIG_HOME`) without duplicating them. At that point fnm isn't installed yet (`brew bundle` hasn't run), so the fnm guard is a no-op — the explicit `eval "$(fnm env)"` later in the script is still needed.
+
+### `brew bundle --global`
+
+The Brewfile lives at `~/.config/homebrew/Brewfile` specifically because `brew bundle --global` reads from `${XDG_CONFIG_HOME}/homebrew/Brewfile`. This requires `XDG_CONFIG_HOME` to be set — without it, `--global` falls back to `~/.homebrew/Brewfile` or `~/.Brewfile`.
+
+### `fnm env` in `.zshenv`
+
+fnm docs recommend adding `eval "$(fnm env)"` to `.zshrc`, but it's in `.zshenv` so non-interactive shells (editors, scripts) can find `node`. Same reasoning as why Volta's PATH was in `.zshenv`. The `--use-on-cd` flag adds a chpwd hook for automatic Node version switching — harmless in non-interactive shells since they don't cd around.
+
 ### `brew autoupdate`
 
 `brew autoupdate` runs `brew upgrade` in the background so that cask-installed tools like Claude Code stay up to date without manual intervention.
