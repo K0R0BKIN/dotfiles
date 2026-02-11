@@ -1,15 +1,9 @@
-# Options
-
 bindkey -e
 setopt CORRECT
-
-# Aliases
 
 alias c='claude --dangerously-skip-permissions'
 alias cr='c --resume'
 alias cc='c --continue'
-
-# Wrappers
 
 claude() {
   local config="$HOME/.claude.json"
@@ -27,8 +21,6 @@ claude() {
 
   command claude "$@"
 }
-
-# Completions
 
 if command -v brew &>/dev/null; then
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
