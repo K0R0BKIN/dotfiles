@@ -7,7 +7,7 @@ Personal dotfiles for macOS. Install script is idempotent — safe to re-run.
 Symlinks are managed by [GNU Stow](https://www.gnu.org/software/stow/). Each subdirectory is a Stow package whose contents mirror the home directory layout.
 
 - `zsh/` — `.zshenv`, `.zshrc` (stowed to `~/`)
-- `brew/` — `Brewfile` (stowed to `~/`)
+- `brew/` — `.config/homebrew/Brewfile` (stowed to `~/.config/homebrew/`)
 - `git/` — `.config/git/config`, `.config/git/ignore` (stowed to `~/.config/git/`)
 - `ghostty/` — `.config/ghostty/config` (stowed to `~/.config/ghostty/`)
 - `zed/` — `.config/zed/settings.json` (stowed to `~/.config/zed/`)
