@@ -2,7 +2,6 @@
 set -e
 
 DOTFILES="$HOME/dotfiles"
-export XDG_CONFIG_HOME="$HOME/.config"
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -15,6 +14,7 @@ ln -sf "$ICLOUD/secrets/.secrets" "$HOME/.secrets"
 
 brew install stow
 cd "$DOTFILES" && stow brew ghostty git zed zsh
+source "$HOME/.zshenv"
 
 brew bundle --global
 
