@@ -15,7 +15,7 @@ ln -sf "$ICLOUD/secrets/.secrets" "$HOME/.secrets"
 brew install stow
 cd "$DOTFILES" && stow brew ghostty git zed zsh
 
-brew bundle
+brew bundle --file="$DOTFILES/brew/Brewfile"
 
 eval "$(fnm env)"
 fnm install --lts
