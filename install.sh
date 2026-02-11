@@ -17,11 +17,7 @@ cd "$DOTFILES" && stow brew ghostty git zed zsh
 
 brew bundle
 
-curl https://get.volta.sh | bash
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-volta completions zsh > "$HOME/.volta-completions.zsh"
-
-volta install node
+eval "$(fnm env)"
+fnm install --lts
 
 gh auth status &>/dev/null || gh auth login

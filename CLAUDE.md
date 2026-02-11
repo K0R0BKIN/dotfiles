@@ -21,8 +21,8 @@ Symlinks are managed by [GNU Stow](https://www.gnu.org/software/stow/). Each sub
 
 ## Tools
 
-- **npm**
-- **Volta**
+- **pnpm**
+- **fnm**
 - **Homebrew**
 - **GNU Stow**
 - **gh**
@@ -31,7 +31,7 @@ Symlinks are managed by [GNU Stow](https://www.gnu.org/software/stow/). Each sub
 
 ### Idempotency
 
-The install script assumes a fresh machine. It doesn't guard against Homebrew or Volta already being installed — re-running just reinstalls or updates them, which is harmless. The goal is "doesn't cause damage on re-runs," not "perfectly skips everything already done." Adding `command -v` guards would make the script noisier without meaningful benefit.
+The install script assumes a fresh machine. It doesn't guard against Homebrew already being installed — re-running just reinstalls or updates it, which is harmless. The goal is "doesn't cause damage on re-runs," not "perfectly skips everything already done." Adding `command -v` guards would make the script noisier without meaningful benefit.
 
 ### `~/.config/git/config` vs. `~/.gitconfig`
 

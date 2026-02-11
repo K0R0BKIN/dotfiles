@@ -1,10 +1,12 @@
 # Binaries
 brew "bat"
-brew "stow"
+brew "fnm"
 brew "gh"
 brew "git"
 brew "jq"
+brew "pnpm"
 brew "ripgrep"
+brew "stow"
 brew "tealdeer"
 
 # Apps
