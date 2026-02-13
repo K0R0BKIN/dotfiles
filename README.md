@@ -6,7 +6,7 @@
 ## Installation
 
 ```bash
-# Install Xcode Command Line Tools when prompted (git is included)
+xcode-select --install
 git clone https://github.com/K0R0BKIN/dotfiles.git ~/dotfiles
 zsh ~/dotfiles/install.sh
 ```
