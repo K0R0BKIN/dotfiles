@@ -4,12 +4,10 @@
   },
   "enabledPlugins": {
     "Notion@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "context7-plugin@context7-marketplace": true,
     "github@claude-plugins-official": true,
     "linear@claude-plugins-official": true,
-    "playground@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
