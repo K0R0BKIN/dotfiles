@@ -13,7 +13,7 @@ ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 ln -sf "$ICLOUD/secrets/.secrets" "$HOME/.secrets"
 
 brew install stow
-cd "$DOTFILES" && stow brew ghostty git zed zsh
+cd "$DOTFILES" && stow brew claude ghostty git zed zsh
 source "$HOME/.zshenv"
 
 brew bundle --global

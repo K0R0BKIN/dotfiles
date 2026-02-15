@@ -1,7 +1,7 @@
 bindkey -e
 setopt CORRECT
 
-alias c='claude --dangerously-skip-permissions'
+alias c='claude'
 alias cr='c --resume'
 alias cc='c --continue'
 
