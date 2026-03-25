@@ -1,5 +1,8 @@
 {
   "soft_wrap": "bounded",
+  "terminal": {
+    "line_height": "standard",
+  },
   "lsp": {
     "vscode-css-language-server": {
       "settings": {
