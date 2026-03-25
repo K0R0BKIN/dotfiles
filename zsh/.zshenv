@@ -1,5 +1,7 @@
 typeset -U path
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 [[ -r "$HOME/.secrets" ]] && source "$HOME/.secrets"
 
 export XDG_CONFIG_HOME="$HOME/.config"
