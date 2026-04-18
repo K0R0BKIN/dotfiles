@@ -5,6 +5,8 @@
 .claude/launch.json
 .codex/environments/
 
+.playwright-mcp/
+
 .secrets
 
 .DS_Store
