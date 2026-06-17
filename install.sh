@@ -6,8 +6,6 @@ DOTFILES="$HOME/dotfiles"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-brew tap domt4/autoupdate
-
 ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 ln -sf "$ICLOUD/secrets/.secrets" "$HOME/.secrets"
 
