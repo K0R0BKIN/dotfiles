@@ -66,9 +66,3 @@ fnm docs recommend adding `eval "$(fnm env)"` to `.zshrc`, but it's in `.zshenv`
 ### `gh auth login`
 
 GitHub requires authentication for git operations over HTTPS (push, pull, clone of private repos). Without a credential helper, git will prompt for a username and password, which will fail because GitHub no longer accepts passwords. `gh auth login` solves this — when it prompts "Authenticate Git with your GitHub credentials?", saying yes configures git to use gh as the credential helper, so all future git operations authenticate through gh automatically.
-
-### `claude()` wrapper
-
-Claude Code has no CLI flag for theme and no automatic system appearance detection. The only way to change the theme is the interactive `/theme` command, which writes to `~/.claude.json`. The wrapper works around this by reading the macOS appearance before launch and updating the config file directly.
-
-The wrapper uses `jq` to update `.claude.json` before launching Claude, writing to a temp file and then `mv`-ing it over the original. On macOS, `mktemp` writes to `$TMPDIR` (`/var/folders/.../T/`), which is on the same APFS volume as `$HOME`, so the `mv` is an atomic rename — not a cross-filesystem copy. The race condition where another process writes to `.claude.json` between the `jq` read and `mv` is theoretically possible but not a practical concern, since `claude` takes over the terminal session. The `jq` dependency is also safe — this is an interactive function, not a shell startup path, so `brew bundle` has always run first.
