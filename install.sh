@@ -19,3 +19,5 @@ eval "$(fnm env)"
 fnm install --lts
 
 gh auth status &>/dev/null || gh auth login
+
+zsh "$DOTFILES/macos/defaults.sh"
