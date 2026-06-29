@@ -12,6 +12,7 @@ brew "tealdeer"
 # Apps
 cask "betterdisplay"
 cask "discord"
+cask "figma"
 cask "ghostty"
 cask "github"
 cask "plex"
